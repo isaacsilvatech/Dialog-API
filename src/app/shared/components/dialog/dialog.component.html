@@ -1,0 +1,11 @@
+<div class="overlay">
+    <div cdkDragBoundary=".overlay" cdkDrag class="dialog" [style]="{width: config?.width, height: config?.height}">
+        <div class="dialog-title" cdkDragHandle>
+            <span><i [class]="config?.icon"></i> {{config?.title}} </span>
+            <span *ngIf="config?.closeButton" class="close" (click)="close()">X</span>
+        </div>
+        <div class="dialog-content">
+            <!-- componentRef -->
+        </div>
+    </div>
+</div>
