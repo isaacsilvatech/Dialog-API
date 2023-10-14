@@ -85,6 +85,10 @@ export class MyComponent {
 
   constructor(private ref: DialogRef<MyComponent>) {
   }
+
+  close() {
+      this.ref.close();
+  }
 }
 ```
 
