@@ -30,7 +30,7 @@ export class AppModule { }`
 ```
 
 ## Uso
-Uma vez que você tenha importado e adicionado o *DialogModule* à sua aplicação Angular, você pode usá-lo para abrir diálogos dinâmicos. Aqui está um exemplo de como usar o **DialogServic** para abrir um diálogo:
+Uma vez que você tenha importado e adicionado o *DialogModule* à sua aplicação Angular, você pode usá-lo para abrir diálogos dinâmicos. Aqui está um exemplo de como usar o **DialogService** para abrir um diálogo:
 
 ```
 import { Component } from '@angular/core';
