@@ -14,6 +14,7 @@ export class AppComponent {
   }
 
   open() {
+    // Abre um diálogo com MeuComponente como seu conteúdo
     let ref = this.dialog.open(MyComponent, {
       title: 'My component',
       width: '400px',
@@ -21,8 +22,10 @@ export class AppComponent {
       closeButton: true
     });
 
+     // Passe dados para o componente do diálogo
     ref.componentInstance.message = "Hello!";
 
+     // Inscreva-se no evento de fechamento do diálogo
     ref.onClose.subscribe(() => {
       console.log("closed dialog")
     })

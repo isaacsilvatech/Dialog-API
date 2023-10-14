@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { DialogModule } from './shared/components/dialog/dialog.module';
-import { MyModule } from './modules/my/my.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +11,6 @@ import { MyModule } from './modules/my/my.module';
   imports: [
     BrowserModule,
     DialogModule,
-    MyModule
   ],
   providers: [],
   bootstrap: [AppComponent]
