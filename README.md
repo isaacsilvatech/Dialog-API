@@ -1,4 +1,4 @@
-# Dialog API - Renderização Dinâmica de Componentes Angular
+# Dialog Ng - Renderização Dinâmica de Componentes Angular
 
 Este repositório contém uma API Angular para renderizar componentes dinâmicos em um diálogo. O módulo DialogModule permite criar e gerenciar facilmente diálogos dinâmicos em sua aplicação Angular. Este README fornece informações sobre como integrar e usar este módulo em seu projeto.
 
