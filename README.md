@@ -49,7 +49,7 @@ export class AppComponent {
   }
 
   open() {
-    // Abre um diálogo com MeuComponente como seu conteúdo
+    // Abre um diálogo com MyComponente como seu conteúdo
     let ref = this.dialog.open(MyComponent, {
       title: 'My component',
       width: '400px',
