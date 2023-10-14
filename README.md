@@ -1,27 +1,90 @@
-# Dialog
+# Dialog API - Renderização Dinâmica de Componentes Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.9.
+Este repositório contém uma API Angular para renderizar componentes dinâmicos em um diálogo. O módulo DialogModule permite criar e gerenciar facilmente diálogos dinâmicos em sua aplicação Angular. Este README fornece informações sobre como integrar e usar este módulo em seu projeto.
 
-## Development server
+## Instalação
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Para usar o DialogModule, siga as etapas de instalação a seguir:
 
-## Code scaffolding
+1. Importe o módulo **DialogModule** em sua aplicação Angular.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
-## Build
+import { AppComponent } from './app.component';
+import { DialogModule } from './shared/components/dialog/dialog.module';
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    DialogModule,
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }`
+```
 
-## Running unit tests
+## Uso
+Uma vez que você tenha importado e adicionado o *DialogModule* à sua aplicação Angular, você pode usá-lo para abrir diálogos dinâmicos. Aqui está um exemplo de como usar o **DialogServic** para abrir um diálogo:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+import { Component } from '@angular/core';
+import { DialogService } from './shared/components/dialog/services/dialog.service';
+import { MyComponent } from './modules/my/my.component';
 
-## Running end-to-end tests
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'dialog';
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+  constructor(private dialog: DialogService) {
+  }
 
-## Further help
+  open() {
+    // Abre um diálogo com MeuComponente como seu conteúdo
+    let ref = this.dialog.open(MyComponent, {
+      title: 'My component',
+      width: '400px',
+      height: '300px',
+      closeButton: true
+    });
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+     // Passe dados para o componente do diálogo
+    ref.componentInstance.message = "Hello!";
+
+     // Inscreva-se no evento de fechamento do diálogo
+    ref.onClose.subscribe(() => {
+      console.log("closed dialog")
+    })
+  }
+}
+```
+
+Após a renderização do componente tenha acesso a referencia do dialog atravez do **DialogRef**
+
+```
+import { Component } from '@angular/core';
+import { DialogRef } from 'src/app/shared/components/dialog/models/dialog-ref.model';
+
+@Component({
+  selector: 'cmp-my',
+  templateUrl: './my.component.html',
+  styleUrls: ['./my.component.css']
+})
+export class MyComponent {
+
+  public message: string;
+
+  constructor(private ref: DialogRef<MyComponent>) {
+  }
+}
+```
+
