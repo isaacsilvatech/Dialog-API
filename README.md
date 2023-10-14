@@ -68,7 +68,7 @@ export class AppComponent {
 }
 ```
 
-Após a renderização do componente tenha acesso a referencia do dialog atravez do **DialogRef**
+Após a renderização do componente tenha acesso a referencia do dialog atravez do **DialogRef**:
 
 ```
 import { Component } from '@angular/core';
